@@ -1,10 +1,22 @@
-import React from 'react'
-import SearchBar from "../components/common/SearchBar"
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import AppLayout from '../pages/AppLayout'
+import Login from '../pages/Login'
+import PageNotFound from '../pages/PageNotFound'
+import Dashboard from '../pages/Dashboard'
 
-const AppRoutes = () => {
+export default function AppRoutes() {
   return (
-    <SearchBar/>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route index element={<Navigate replace to="dashboard" />} />
+            <Route path="dashboard" element={<Dashboard />} />
+          </Route>
+            <Route path="login" element={<Login />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   )
 }
-
-export default AppRoutes
