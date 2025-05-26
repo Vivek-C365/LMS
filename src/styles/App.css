@@ -2,10 +2,13 @@
 
 :root {
   --color-primary: #00ff84;
-  --color-primary-text: #002333;
+  --color-primary-v1: #002333;
   --color-secondary-text-v1: #7b7b7b;
   --color-secondary-text-v2: #3722d3;
+  --color-secondary-text-v3: #2D2D2D;
+  --color-secondary-text-black-v1: #0E0E0E;
   --color-primary-border: #9a9a9a;
+  --color-light-green : #E3FFF1
 }
 
 .custom-text-style-search .ant-input {
