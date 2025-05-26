@@ -1,4 +1,4 @@
-export function Button({
+export default function Button({
   children,
   variant = "primary",
   size = "md",
@@ -11,11 +11,13 @@ export function Button({
 }) {
   const variantClasses = {
     primary:
-      "bg-blue-600 hover:bg-blue-700 text-white border  focus:outline-none ",
+      "hover:bg-[var(--color-primary)] border-none focus:outline-none ",
     secondary:
       "bg-gray-200 hover:bg-gray-300 text-gray-800 border border-gray-200",
-    success: "bg-green-600 hover:bg-green-700 text-white border border-green-600",
-    warning: "bg-amber-500 hover:bg-amber-600 text-white border border-amber-500",
+    success:
+      "bg-green-600 hover:bg-green-700 text-white border border-green-600",
+    warning:
+      "bg-amber-500 hover:bg-amber-600 text-white border border-amber-500",
     danger: "bg-red-600 hover:bg-red-700 text-white border border-red-600",
     outline:
       "bg-transparent border border-gray-300 hover:bg-gray-100 text-gray-700",
@@ -30,7 +32,7 @@ export function Button({
   return (
     <button
       onClick={onClick}
-      className={`font-poppins rounded-full transition duration-200 flex justify-center items-center ${
+      className={`font-poppins rounded-xl m-1 transition duration-200 flex justify-center items-center ${
         variantClasses[variant]
       } ${sizeClasses[size]} ${
         isLoading ? "opacity-70 cursor-not-allowed" : ""
