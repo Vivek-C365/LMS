@@ -9,7 +9,7 @@ import Video from "../assets/images/png/videoEditing.png";
 import DataScience from "../assets/images/png/dataScience.png";
 import Graphic from "../assets/images/png/graphicDesigner.png";
 import Modrenskill from "../assets/images/png/ModrensectionPic.png";
-
+import { HomePageData } from "../services/data/data";
 const HeroCard = () => {
   const cardData = [
     {
@@ -91,11 +91,20 @@ const FeaturesCard = () => {
             className={` max-w-[69px] max-h-[69px] w-full h-[69px] rounded-full ${card.backgroundColor}  flex items-center justify-center mb-4`}
           >
             {/* <img src={ConnectPeople} alt="" /> */}
-            <ConnectPeople color={card.iconColor} width={24} height={24} />
+            <ConnectPeople color={card.iconColor} width={28} height={32} />
           </div>
-          <h3 className="text-xl font-bold mb-2">{card.title}</h3>
-          <p className="text-gray-700 mb-2">{card.description}</p>
-          <p className="text-gray-500 text-sm">{card.description}</p>
+          <h3 className="text-2xl font-[600] mb-2">{card.title}</h3>
+          <div className="flex flex-col gap-2 max-w-[340px] w-full ">
+            <p
+              className="text-[var(--color-secondary-text-black-v1)] mb-2 text-[14px]"
+              style={{ fontFamily: "Inter" }}
+            >
+              {card.description}
+              <br />
+              <br />
+              {card.description}
+            </p>
+          </div>
         </div>
       ))}
     </div>
@@ -144,54 +153,174 @@ export default function Home() {
           <img loading="lazy" src={HeroPic} alt="" />
         </div>
       </div>
-      {/* Hero Section Ends */}
 
       {/* Image Card */}
       <HeroCard />
-      {/* Image Card Ends */}
-
-      {/* Modern Skills Section */}
-      <div className="bg-black w-full py-10  md:px-16">
-        <div className="max-w-[1200px] mx-auto flex flex-col mb-8 md:flex-row items-start md:items-end">
-          <div className="flex-1">
-            <h2
-              className="text-white text-4xl md:text-6xl font-[400] w-max"
-              style={{ fontFamily: "Fjalla One" }}
-            >
-              Modern skills need a<br />
-              modern learning approach
-            </h2>
+      <div className=" bg-black">
+        {/* Modern Skills Section */}
+        <div className=" w-full py-10 md:px-16">
+          <div className="max-w-[1200px] mx-auto flex mt-15 flex-col mb-8 md:flex-row items-start md:items-end">
+            <div className="flex-1">
+              <h2
+                className="text-white text-4xl md:text-6xl font-[400] w-max"
+                style={{ fontFamily: "Fjalla One" }}
+              >
+                Modern skills need a<br />
+                modern learning approach
+              </h2>
+            </div>
+            <div className="flex-1 mt-6 md:mt-0 md:pl-12 md:max-w-[480px]">
+              <p
+                className="text-white !text-base md:text-lg font-[400]"
+                style={{ fontFamily: "Inter" }}
+              >
+                Learning solutions shouldn't be one-size-fits-all. For effective
+                training, you need the right skills and the right modalities.
+                That's where we come in.
+              </p>
+            </div>
           </div>
-          <div className="flex-1 mt-6 md:mt-0 md:pl-12 md:max-w-[480px]">
-            <p
-              className="text-white !text-base md:text-lg font-[400]"
-              style={{ fontFamily: "Inter" }}
-            >
-              Learning solutions shouldn't be one-size-fits-all. For effective
-              training, you need the right skills and the right modalities.
-              That's where we come in.
-            </p>
+
+          {/* Image and Features Section */}
+          <div className="w-full">
+            <div className="max-w-[1200px] mx-auto">
+              {/* Background image */}
+              <div className="w-full h-[250px] md:h-[276px] rounded-t-xl overflow-hidden relative">
+                <img
+                  src={Modrenskill}
+                  alt="Learning"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Features */}
+              <FeaturesCard />
+            </div>
           </div>
         </div>
 
-        {/* Image and Features Section */}
-        <div className="w-full">
-          <div className="max-w-[1200px] mx-auto">
-            {/* Background image */}
-            <div className="w-full h-[250px] md:h-[276px] rounded-t-xl overflow-hidden relative">
-              <img
-                src={Modrenskill}
-                alt="Learning"
-                className="w-full h-full object-cover"
-              />
+        {/* Stats Section */}
+
+        <div className="max-w-[1200px] bg-[var(--color-secondary-text-black-v1)] !px-10 mx-auto flex flex-col md:flex-row justify-between items-center  rounded-md md:px-8">
+          {[1, 2, 3, 4].map((_, idx) => (
+            <div
+              key={idx}
+              className="flex-1 flex flex-col items-center py-6 relative"
+            >
+              <div
+                className="text-[48px] font-bold text-[var(--color-primary)] leading-none mb-2"
+                style={{ fontFamily: "inter" }}
+              >
+                500+
+              </div>
+              <div
+                className="text-white text-[12px] font-semibold text-center"
+                style={{ fontFamily: "inter" }}
+              >
+                Students Who Achieve Great Success
+              </div>
+              {idx < 3 && (
+                <div className="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 h-16 border-r border-[#444]"></div>
+              )}
             </div>
-            {/* Features */}
-            <FeaturesCard />
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* Image and Features Section Ends */}
+      {/* Explore Courses Section */}
+      <div className="w-full bg-black py-12">
+        <div className="max-w-[1200px] mx-auto">
+          {/* Heading */}
+
+          <div className="">
+            <h2
+              className="text-white text-center text-4xl md:text-5xl font-bold mb-8"
+              style={{ fontFamily: "Fjalla One" }}
+            >
+              Explore Inspiring Online Courses
+            </h2>
+            {/* Filter Chips */}
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+              {[
+                "Featured",
+                "Music",
+                "Drawing & Painting",
+                "Marketing",
+                "Animation",
+                "Education",
+                "UI/UX Design",
+                "Creative Writing",
+                "Digital Illustration",
+                "Film & Video",
+                "Crafts",
+                "AI & Innovation",
+                "Graphic Design",
+              ].map((cat, i) => (
+                <button
+                  key={cat}
+                  className={`px-5 py-2 rounded-full border border-[#222] text-white text-sm font-medium transition ${
+                    i === 0
+                      ? "bg-[#00FF84] text-black border-none"
+                      : "hover:bg-[#222]"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Courses Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+            {HomePageData.map((course, i) => (
+              <div
+                key={i}
+                className="bg-[#181818] rounded-xl overflow-hidden shadow-md flex flex-col"
+              >
+                <img
+                  src={`https://source.unsplash.com/400x250/?course,education,${i}`}
+                  alt="Course"
+                  className="w-full h-[160px] object-cover"
+                />
+                <div className="p-4 flex-1 flex flex-col">
+                  <div className="flex items-center mb-2">
+                    <span className="w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center text-xs font-bold mr-2">
+                      👤
+                    </span>
+                    <span className="text-xs text-gray-300">
+                      by {course.author}
+                    </span>
+                  </div>
+                  <h3 className="text-white font-semibold text-lg mb-2">
+                    {course.title}
+                  </h3>
+                  <div className="flex items-center justify-between mt-auto">
+                    <span className="text-[#00FF84] text-xs font-medium">
+                      {course.students}
+                    </span>
+                    <span className="flex items-center text-[#00FF84] text-xs font-medium">
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="mr-1"
+                      >
+                        <path d="M8 12.472l-4.472 2.35.854-4.98L1 6.528l5.014-.728L8 1.944l1.986 3.856 5.014.728-3.382 3.314.854 4.98z" />
+                      </svg>
+                      {course.rating}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* See More Button */}
+          <div className="flex justify-center">
+            <button className="px-8 py-2 border border-white rounded-full text-white hover:bg-[#00FF84] hover:text-black transition">
+              See More
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
