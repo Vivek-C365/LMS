@@ -1,9 +1,27 @@
 @import "tailwindcss";
+
 :root {
   --color-primary: #00ff84;
   --color-primary-text: #002333;
   --color-secondary-text-v1: #7b7b7b;
   --color-secondary-text-v2: #3722d3;
   --color-primary-border: #9a9a9a;
-  --color-secondary-border: #9a9a9a;
+}
+
+.custom-text-style-search .ant-input {
+  font-family: "Poppins" !important ;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  letter-spacing: 2% !important;
+
+}
+
+.custom-text-style-search::placeholder {
+  font-family: "Poppins";
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  line-height: 130% !important;
+  letter-spacing: 2% !important;
+  opacity: 1 !important;
+  color: var(--color-secondary-text-v1);
 }
