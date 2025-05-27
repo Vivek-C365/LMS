@@ -8,7 +8,11 @@
   --color-secondary-text-v3: #2D2D2D;
   --color-secondary-text-black-v1: #0E0E0E;
   --color-primary-border: #9a9a9a;
-  --color-light-green : #E3FFF1
+  --color-light-green : #E3FFF1;
+  --color-light-purple : #DBD7FF;
+  --color-light-yellow : #FFF4D9;
+  --color-mid-yellow : #FFC023;
+  --color-light-gray : #222
 }
 
 .custom-text-style-search .ant-input {

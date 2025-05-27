@@ -9,7 +9,10 @@ import Video from "../assets/images/png/videoEditing.png";
 import DataScience from "../assets/images/png/dataScience.png";
 import Graphic from "../assets/images/png/graphicDesigner.png";
 import Modrenskill from "../assets/images/png/ModrensectionPic.png";
+import Course1 from "../assets/images/png/course1.png";
 import { HomePageData } from "../services/data/data";
+import TestimonialCarousel from "../components/TestimonialCarousel";
+
 const HeroCard = () => {
   const cardData = [
     {
@@ -62,22 +65,22 @@ const FeaturesCard = () => {
   const cardData = [
     {
       title: "On-Demand Learning",
-      backgroundColor: "bg-[#E3FFF1]",
-      iconColor: "#00FF84",
+      backgroundColor: "bg-[var(--color-light-green)]",
+      iconColor: "var(--color-primary)",
       description:
         "Et massa amet ultrices eget pellentesque vel. Mi imperdiet consectetur aliquam mi enim diam augue. Diam id quam urna volutpat.",
     },
     {
       title: "Expert Trainers",
-      backgroundColor: "bg-[#DBD7FF]",
-      iconColor: "#3722D3",
+      backgroundColor: "bg-[var(--color-light-purple)]",
+      iconColor: "var(--color-secondary-text-v2)",
       description:
         "Et massa amet ultrices eget pellentesque vel. Mi imperdiet consectetur aliquam mi enim diam augue. Diam id quam urna volutpat.",
     },
     {
       title: "Professional Services",
-      backgroundColor: "bg-[#FFF4D9]",
-      iconColor: "#FFC023",
+      backgroundColor: "bg-[var(--color-light-yellow)]",
+      iconColor: "var(--color-mid-yellow)",
       description:
         "Et massa amet ultrices eget pellentesque vel. Mi imperdiet consectetur aliquam mi enim diam augue. Diam id quam urna volutpat.",
     },
@@ -110,6 +113,22 @@ const FeaturesCard = () => {
     </div>
   );
 };
+
+const Categories = [
+  "Featured",
+  "Music",
+  "Drawing & Painting",
+  "Marketing",
+  "Animation",
+  "Education",
+  "UI/UX Design",
+  "Creative Writing",
+  "Digital Illustration",
+  "Film & Video",
+  "Crafts",
+  "AI & Innovation",
+  "Graphic Design",
+];
 
 export default function Home() {
   return (
@@ -162,7 +181,7 @@ export default function Home() {
           <div className="max-w-[1200px] mx-auto flex mt-15 flex-col mb-8 md:flex-row items-start md:items-end">
             <div className="flex-1">
               <h2
-                className="text-white text-4xl md:text-6xl font-[400] w-max"
+                className="text-white text-4xl md:text-6xl font-[400] w-auto"
                 style={{ fontFamily: "Fjalla One" }}
               >
                 Modern skills need a<br />
@@ -228,39 +247,25 @@ export default function Home() {
 
       {/* Explore Courses Section */}
       <div className="w-full bg-black py-12">
-        <div className="max-w-[1200px] mx-auto">
+        <div className="max-w-[1200px] flex flex-col items-center mx-auto">
           {/* Heading */}
 
-          <div className="">
+          <div className="max-w-[1096px]">
             <h2
-              className="text-white text-center text-4xl md:text-5xl font-bold mb-8"
+              className="text-white text-center text-4xl md:text-[56px] font-normal mb-8"
               style={{ fontFamily: "Fjalla One" }}
             >
               Explore Inspiring Online Courses
             </h2>
             {/* Filter Chips */}
-            <div className="flex flex-wrap justify-center gap-3 mb-10">
-              {[
-                "Featured",
-                "Music",
-                "Drawing & Painting",
-                "Marketing",
-                "Animation",
-                "Education",
-                "UI/UX Design",
-                "Creative Writing",
-                "Digital Illustration",
-                "Film & Video",
-                "Crafts",
-                "AI & Innovation",
-                "Graphic Design",
-              ].map((cat, i) => (
+            <div className="flex flex-wrap py-5 px-13 justify-center gap-3 mb-10">
+              {Categories.map((cat, i) => (
                 <button
                   key={cat}
-                  className={`px-5 py-2 rounded-full border border-[#222] text-white text-sm font-medium transition ${
+                  className={`px-5 py-2 rounded-full border border-[var(--color-light-gray)] text-white text-sm font-medium transition ${
                     i === 0
-                      ? "bg-[#00FF84] text-black border-none"
-                      : "hover:bg-[#222]"
+                      ? "bg-[var(--color-primary)] text-black border-none"
+                      : "hover:bg-[var(--color-light-gray)]"
                   }`}
                 >
                   {cat}
@@ -270,34 +275,38 @@ export default function Home() {
           </div>
 
           {/* Courses Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
             {HomePageData.map((course, i) => (
               <div
                 key={i}
-                className="bg-[#181818] rounded-xl overflow-hidden shadow-md flex flex-col"
+                className="bg-[#181818] rounded-xl max-w-[291px] max-h-[362px] h-[362px] gap-4 p-4 overflow-hidden shadow-md flex flex-col"
               >
-                <img
-                  src={`https://source.unsplash.com/400x250/?course,education,${i}`}
-                  alt="Course"
-                  className="w-full h-[160px] object-cover"
-                />
-                <div className="p-4 flex-1 flex flex-col">
-                  <div className="flex items-center mb-2">
-                    <span className="w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center text-xs font-bold mr-2">
-                      👤
-                    </span>
-                    <span className="text-xs text-gray-300">
-                      by {course.author}
-                    </span>
+                <img src={Course1} alt="Course" className="w-full rounded-xl" />
+                <div className=" flex-1 flex flex-col justify-between">
+                  <div className="flex flex-col gap-1.5">
+                    <div className="flex items-center ">
+                      <span className="w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center text-xs font-bold mr-2">
+                        👤
+                      </span>
+                      <span className="text-[14px] text-gray-300">
+                        by {course.author}
+                      </span>
+                    </div>
+                    <h3 className="text-white font-semibold text-lg">
+                      {course.title}
+                    </h3>
                   </div>
-                  <h3 className="text-white font-semibold text-lg mb-2">
-                    {course.title}
-                  </h3>
-                  <div className="flex items-center justify-between mt-auto">
-                    <span className="text-[#00FF84] text-xs font-medium">
+                  <div className="flex items-center justify-between ">
+                    <span
+                      className="text-[var(--color-primary)] text-xs font-medium"
+                      style={{ fontFamily: "Inter" }}
+                    >
                       {course.students}
                     </span>
-                    <span className="flex items-center text-[#00FF84] text-xs font-medium">
+                    <span
+                      className="flex items-center text-[var(--color-primary)] text-xs font-medium"
+                      style={{ fontFamily: "Inter" }}
+                    >
                       <svg
                         width="16"
                         height="16"
@@ -313,14 +322,17 @@ export default function Home() {
               </div>
             ))}
           </div>
+
           {/* See More Button */}
           <div className="flex justify-center">
-            <button className="px-8 py-2 border border-white rounded-full text-white hover:bg-[#00FF84] hover:text-black transition">
+            <button className="px-8 py-2 border border-white rounded-[10px] text-white hover:bg-[var(--color-primary)] hover:text-black transition">
               See More
             </button>
           </div>
         </div>
       </div>
+      {/* Testimonial Carousel */}
+      <TestimonialCarousel />
     </>
   );
 }
