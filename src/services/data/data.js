@@ -1,0 +1,58 @@
+export const HomePageData = [
+  {
+    title: "Data Analytics",
+    author: "Albert Flores",
+    students: "2,000 students",
+    rating: 4.5,
+    category: "Professional Certificate",
+  },
+  {
+    title: "Digital Marketing Specialist",
+    author: "Brooklyn Simmons",
+    students: "2,000 students",
+    rating: 4.5,
+    category: "Professional Certificate",
+  },
+  {
+    title: "Finance & Quantitative Modeling for Analysts",
+    author: "Cody Fisher",
+    students: "2,000 students",
+    rating: 4.5,
+    category: "Professional Certificate",
+  },
+  {
+    title: "Data Analytics",
+    author: "Savannah Nguyen",
+    students: "2,000 students",
+    rating: 4.5,
+    category: "Professional Certificate",
+  },
+  {
+    title: "Data Analytics",
+    author: "Savannah Nguyen",
+    students: "2,000 students",
+    rating: 4.5,
+    category: "Professional Certificate",
+  },
+  {
+    title: "Data Analytics",
+    author: "Albert Flores",
+    students: "2,000 students",
+    rating: 4.5,
+    category: "Professional Certificate",
+  },
+  {
+    title: "Digital Marketing Specialist",
+    author: "Brooklyn Simmons",
+    students: "2,000 students",
+    rating: 4.5,
+    category: "Professional Certificate",
+  },
+  {
+    title: "Finance & Quantitative Modeling for Analysts",
+    author: "Cody Fisher",
+    students: "2,000 students",
+    rating: 4.5,
+    category: "Professional Certificate",
+  },
+];

@@ -9,6 +9,9 @@ import Video from "../assets/images/png/videoEditing.png";
 import DataScience from "../assets/images/png/dataScience.png";
 import Graphic from "../assets/images/png/graphicDesigner.png";
 import Modrenskill from "../assets/images/png/ModrensectionPic.png";
+import Course1 from "../assets/images/png/course1.png";
+import { HomePageData } from "../services/data/data";
+import TestimonialCarousel from "../components/TestimonialCarousel";
 
 const HeroCard = () => {
   const cardData = [
@@ -62,22 +65,22 @@ const FeaturesCard = () => {
   const cardData = [
     {
       title: "On-Demand Learning",
-      backgroundColor: "bg-[#E3FFF1]",
-      iconColor: "#00FF84",
+      backgroundColor: "bg-[var(--color-light-green)]",
+      iconColor: "var(--color-primary)",
       description:
         "Et massa amet ultrices eget pellentesque vel. Mi imperdiet consectetur aliquam mi enim diam augue. Diam id quam urna volutpat.",
     },
     {
       title: "Expert Trainers",
-      backgroundColor: "bg-[#DBD7FF]",
-      iconColor: "#3722D3",
+      backgroundColor: "bg-[var(--color-light-purple)]",
+      iconColor: "var(--color-secondary-text-v2)",
       description:
         "Et massa amet ultrices eget pellentesque vel. Mi imperdiet consectetur aliquam mi enim diam augue. Diam id quam urna volutpat.",
     },
     {
       title: "Professional Services",
-      backgroundColor: "bg-[#FFF4D9]",
-      iconColor: "#FFC023",
+      backgroundColor: "bg-[var(--color-light-yellow)]",
+      iconColor: "var(--color-mid-yellow)",
       description:
         "Et massa amet ultrices eget pellentesque vel. Mi imperdiet consectetur aliquam mi enim diam augue. Diam id quam urna volutpat.",
     },
@@ -91,16 +94,41 @@ const FeaturesCard = () => {
             className={` max-w-[69px] max-h-[69px] w-full h-[69px] rounded-full ${card.backgroundColor}  flex items-center justify-center mb-4`}
           >
             {/* <img src={ConnectPeople} alt="" /> */}
-            <ConnectPeople color={card.iconColor} width={24} height={24} />
+            <ConnectPeople color={card.iconColor} width={28} height={32} />
           </div>
-          <h3 className="text-xl font-bold mb-2">{card.title}</h3>
-          <p className="text-gray-700 mb-2">{card.description}</p>
-          <p className="text-gray-500 text-sm">{card.description}</p>
+          <h3 className="text-2xl font-[600] mb-2">{card.title}</h3>
+          <div className="flex flex-col gap-2 max-w-[340px] w-full ">
+            <p
+              className="text-[var(--color-secondary-text-black-v1)] mb-2 text-[14px]"
+              style={{ fontFamily: "Inter" }}
+            >
+              {card.description}
+              <br />
+              <br />
+              {card.description}
+            </p>
+          </div>
         </div>
       ))}
     </div>
   );
 };
+
+const Categories = [
+  "Featured",
+  "Music",
+  "Drawing & Painting",
+  "Marketing",
+  "Animation",
+  "Education",
+  "UI/UX Design",
+  "Creative Writing",
+  "Digital Illustration",
+  "Film & Video",
+  "Crafts",
+  "AI & Innovation",
+  "Graphic Design",
+];
 
 export default function Home() {
   return (
@@ -144,54 +172,167 @@ export default function Home() {
           <img loading="lazy" src={HeroPic} alt="" />
         </div>
       </div>
-      {/* Hero Section Ends */}
 
       {/* Image Card */}
       <HeroCard />
-      {/* Image Card Ends */}
-
-      {/* Modern Skills Section */}
-      <div className="bg-black w-full py-10  md:px-16">
-        <div className="max-w-[1200px] mx-auto flex flex-col mb-8 md:flex-row items-start md:items-end">
-          <div className="flex-1">
-            <h2
-              className="text-white text-4xl md:text-6xl font-[400] w-max"
-              style={{ fontFamily: "Fjalla One" }}
-            >
-              Modern skills need a<br />
-              modern learning approach
-            </h2>
+      <div className=" bg-black">
+        {/* Modern Skills Section */}
+        <div className=" w-full py-10 md:px-16">
+          <div className="max-w-[1200px] mx-auto flex mt-15 flex-col mb-8 md:flex-row items-start md:items-end">
+            <div className="flex-1">
+              <h2
+                className="text-white text-4xl md:text-6xl font-[400] w-auto"
+                style={{ fontFamily: "Fjalla One" }}
+              >
+                Modern skills need a<br />
+                modern learning approach
+              </h2>
+            </div>
+            <div className="flex-1 mt-6 md:mt-0 md:pl-12 md:max-w-[480px]">
+              <p
+                className="text-white !text-base md:text-lg font-[400]"
+                style={{ fontFamily: "Inter" }}
+              >
+                Learning solutions shouldn't be one-size-fits-all. For effective
+                training, you need the right skills and the right modalities.
+                That's where we come in.
+              </p>
+            </div>
           </div>
-          <div className="flex-1 mt-6 md:mt-0 md:pl-12 md:max-w-[480px]">
-            <p
-              className="text-white !text-base md:text-lg font-[400]"
-              style={{ fontFamily: "Inter" }}
-            >
-              Learning solutions shouldn't be one-size-fits-all. For effective
-              training, you need the right skills and the right modalities.
-              That's where we come in.
-            </p>
+
+          {/* Image and Features Section */}
+          <div className="w-full">
+            <div className="max-w-[1200px] mx-auto">
+              {/* Background image */}
+              <div className="w-full h-[250px] md:h-[276px] rounded-t-xl overflow-hidden relative">
+                <img
+                  src={Modrenskill}
+                  alt="Learning"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Features */}
+              <FeaturesCard />
+            </div>
           </div>
         </div>
 
-        {/* Image and Features Section */}
-        <div className="w-full">
-          <div className="max-w-[1200px] mx-auto">
-            {/* Background image */}
-            <div className="w-full h-[250px] md:h-[276px] rounded-t-xl overflow-hidden relative">
-              <img
-                src={Modrenskill}
-                alt="Learning"
-                className="w-full h-full object-cover"
-              />
+        {/* Stats Section */}
+
+        <div className="max-w-[1200px] bg-[var(--color-secondary-text-black-v1)] !px-10 mx-auto flex flex-col md:flex-row justify-between items-center  rounded-md md:px-8">
+          {[1, 2, 3, 4].map((_, idx) => (
+            <div
+              key={idx}
+              className="flex-1 flex flex-col items-center py-6 relative"
+            >
+              <div
+                className="text-[48px] font-bold text-[var(--color-primary)] leading-none mb-2"
+                style={{ fontFamily: "inter" }}
+              >
+                500+
+              </div>
+              <div
+                className="text-white text-[12px] font-semibold text-center"
+                style={{ fontFamily: "inter" }}
+              >
+                Students Who Achieve Great Success
+              </div>
+              {idx < 3 && (
+                <div className="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 h-16 border-r border-[#444]"></div>
+              )}
             </div>
-            {/* Features */}
-            <FeaturesCard />
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* Image and Features Section Ends */}
+      {/* Explore Courses Section */}
+      <div className="w-full bg-black py-12">
+        <div className="max-w-[1200px] flex flex-col items-center mx-auto">
+          {/* Heading */}
+
+          <div className="max-w-[1096px]">
+            <h2
+              className="text-white text-center text-4xl md:text-[56px] font-normal mb-8"
+              style={{ fontFamily: "Fjalla One" }}
+            >
+              Explore Inspiring Online Courses
+            </h2>
+            {/* Filter Chips */}
+            <div className="flex flex-wrap py-5 px-13 justify-center gap-3 mb-10">
+              {Categories.map((cat, i) => (
+                <button
+                  key={cat}
+                  className={`px-5 py-2 rounded-full border border-[var(--color-light-gray)] text-white text-sm font-medium transition ${
+                    i === 0
+                      ? "bg-[var(--color-primary)] text-black border-none"
+                      : "hover:bg-[var(--color-light-gray)]"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Courses Grid */}
+          <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+            {HomePageData.map((course, i) => (
+              <div
+                key={i}
+                className="bg-[#181818] rounded-xl max-w-[291px] max-h-[362px] h-[362px] gap-4 p-4 overflow-hidden shadow-md flex flex-col"
+              >
+                <img src={Course1} alt="Course" className="w-full rounded-xl" />
+                <div className=" flex-1 flex flex-col justify-between">
+                  <div className="flex flex-col gap-1.5">
+                    <div className="flex items-center ">
+                      <span className="w-6 h-6 rounded-full bg-yellow-400 flex items-center justify-center text-xs font-bold mr-2">
+                        👤
+                      </span>
+                      <span className="text-[14px] text-gray-300">
+                        by {course.author}
+                      </span>
+                    </div>
+                    <h3 className="text-white font-semibold text-lg">
+                      {course.title}
+                    </h3>
+                  </div>
+                  <div className="flex items-center justify-between ">
+                    <span
+                      className="text-[var(--color-primary)] text-xs font-medium"
+                      style={{ fontFamily: "Inter" }}
+                    >
+                      {course.students}
+                    </span>
+                    <span
+                      className="flex items-center text-[var(--color-primary)] text-xs font-medium"
+                      style={{ fontFamily: "Inter" }}
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        className="mr-1"
+                      >
+                        <path d="M8 12.472l-4.472 2.35.854-4.98L1 6.528l5.014-.728L8 1.944l1.986 3.856 5.014.728-3.382 3.314.854 4.98z" />
+                      </svg>
+                      {course.rating}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* See More Button */}
+          <div className="flex justify-center">
+            <button className="px-8 py-2 border border-white rounded-[10px] text-white hover:bg-[var(--color-primary)] hover:text-black transition">
+              See More
+            </button>
+          </div>
+        </div>
+      </div>
+      {/* Testimonial Carousel */}
+      <TestimonialCarousel />
     </>
   );
 }
