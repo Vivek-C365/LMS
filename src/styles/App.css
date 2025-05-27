@@ -9,6 +9,8 @@
   --color-secondary-text-black-v1: #0E0E0E;
   --color-primary-border: #9a9a9a;
   --color-light-green : #E3FFF1
+  --color-border-button: #EEEEEE
+  --color-background-button: #f7f7f7
 }
 
 .custom-text-style-search .ant-input {

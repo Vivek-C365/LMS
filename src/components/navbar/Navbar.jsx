@@ -3,7 +3,8 @@ import Earth from '../../assets/icons/svg/Earth.svg'
 import plus from '../../assets/images/svg/Vector.svg'
 import DropDown from '../common/DropDown'
 import SearchBar from '../common/SearchBar'
-import Button from '../common/button'
+import AuthPage from '../../auth/pages/AuthPage'
+// import Button from '../common/button'
 // import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
@@ -81,8 +82,7 @@ export default function Navbar() {
           </div>
 
           <div className='flex '>
-            <Button>SignIn</Button>
-            <Button className="bg-[var(--color-primary)]">SignUp</Button>
+            <AuthPage />
           </div>
         </div>
       </div>
