@@ -28,6 +28,7 @@ export default function Button({
     md: 'py-2 px-4 text-base',
     lg: 'py-3 px-6 text-lg',
   }
+
   return (
     <button
       onClick={onClick}
