@@ -10,9 +10,9 @@ import DataScience from "../assets/images/png/dataScience.png";
 import Graphic from "../assets/images/png/graphicDesigner.png";
 import Modrenskill from "../assets/images/png/ModrensectionPic.png";
 import Course1 from "../assets/images/png/course1.png";
-import { HomePageData } from "../services/data/data";
-import CardCarousel from "../components/TestimonialCarousel";
+import { HomePageData, testimonials } from "../services/data/data";
 import { headingStyles } from "../styles/typography";
+import CarouselLayout from "../components/common/CarouselLayout";
 
 const HeroCard = () => {
   const cardData = [
@@ -263,7 +263,7 @@ export default function Home() {
               {Categories.map((cat, i) => (
                 <button
                   key={cat}
-                  className={`category-button ${i === 0 ? 'active' : ''}`}
+                  className={`category-button ${i === 0 ? "active" : ""}`}
                 >
                   {cat}
                 </button>
@@ -330,7 +330,21 @@ export default function Home() {
       </div>
 
       {/* Testimonial Carousel */}
-      <CardCarousel />
+      <div className="w-full flex flex-col items-center my-12 px-4">
+        <h2
+          className="text-black text-center text-4xl md:text-[48px] font-bold mb-2"
+          style={{ fontFamily: "Fjalla One" }}
+        >
+          Why Students Love Learning+
+        </h2>
+        <p className="text-center text-gray-600 mb-8 max-w-2xl">
+          Whether it's a first brush on canvas or the last frame in an
+          animation, Learning+ is here to support you on every step of your
+          creative journey.
+        </p>
+
+        <CarouselLayout contentList={testimonials} />
+      </div>
     </>
   );
 }
