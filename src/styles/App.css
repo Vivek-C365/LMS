@@ -38,3 +38,10 @@
   opacity: 1 !important;
   color: var(--color-secondary-text-v1);
 }
+
+
+
+.react-multi-carousel-list li{
+  width: 754px !important;
+}
+

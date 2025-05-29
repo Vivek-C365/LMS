@@ -11,7 +11,8 @@ import Graphic from "../assets/images/png/graphicDesigner.png";
 import Modrenskill from "../assets/images/png/ModrensectionPic.png";
 import Course1 from "../assets/images/png/course1.png";
 import { HomePageData } from "../services/data/data";
-import TestimonialCarousel from "../components/TestimonialCarousel";
+import CardCarousel from "../components/TestimonialCarousel";
+import { headingStyles } from "../styles/typography";
 
 const HeroCard = () => {
   const cardData = [
@@ -51,7 +52,7 @@ const HeroCard = () => {
         >
           <h2
             className="absolute top-4 left-4 text-white text-2xl font-bold z-10"
-            style={inter}
+            style={headingStyles.inter}
           >
             {card.title}
           </h2>
@@ -134,7 +135,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <div className="flex flex-col md:flex-row items-center max-w-[1200px] mx-auto bg-white">
+      <div className="hero-container custom-flex-1 flex-col md:flex-row">
         <div className="flex-1 px-8 md:px-16 py-12 md:pl-0 ">
           <div className="flex items-center gap-4 mb-6">
             <div className="bg-[var(--color-primary-v1)] w-[50px] h-[50px] flex items-center justify-center">
@@ -152,7 +153,7 @@ export default function Home() {
           </div>
           <h1
             className="text-[40px] md:text-[80px] mb-6 leading-tight"
-            style={textStyle}
+            style={headingStyles.h1}
           >
             Learn without
             <br />
@@ -168,21 +169,23 @@ export default function Home() {
           </Button>
         </div>
 
-        <div className="flex-1 flex items-center justify-center relative w-full h-[400px] md:h-auto">
+        <div className="flex-1 custom-flex-1 relative w-full h-[400px] md:h-auto">
           <img loading="lazy" src={HeroPic} alt="" />
         </div>
       </div>
 
       {/* Image Card */}
       <HeroCard />
+
+      {/* learning approach */}
       <div className=" bg-black">
         {/* Modern Skills Section */}
         <div className=" w-full py-10 md:px-16">
           <div className="max-w-[1200px] mx-auto flex mt-15 flex-col mb-8 md:flex-row items-start md:items-end">
             <div className="flex-1">
               <h2
-                className="text-white text-4xl md:text-6xl font-[400] w-auto"
-                style={{ fontFamily: "Fjalla One" }}
+                className="text-white text-4xl md:text-[56px] font-[400] w-auto"
+                style={headingStyles.h2}
               >
                 Modern skills need a<br />
                 modern learning approach
@@ -218,8 +221,7 @@ export default function Home() {
         </div>
 
         {/* Stats Section */}
-
-        <div className="max-w-[1200px] bg-[var(--color-secondary-text-black-v1)] !px-10 mx-auto flex flex-col md:flex-row justify-between items-center  rounded-md md:px-8">
+        <div className="max-w-[1200px] bg-[var(--color-secondary-text-black-v1)] !px-10 mx-auto flex flex-col md:flex-row justify-between items-center rounded-md md:px-8">
           {[1, 2, 3, 4].map((_, idx) => (
             <div
               key={idx}
@@ -238,7 +240,7 @@ export default function Home() {
                 Students Who Achieve Great Success
               </div>
               {idx < 3 && (
-                <div className="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2 h-16 border-r border-[#444]"></div>
+                <div className="hidden md:block stats-divider absolute right-0 top-1/2 transform -translate-y-1/2"></div>
               )}
             </div>
           ))}
@@ -249,11 +251,10 @@ export default function Home() {
       <div className="w-full bg-black py-12">
         <div className="max-w-[1200px] flex flex-col items-center mx-auto">
           {/* Heading */}
-
           <div className="max-w-[1096px]">
             <h2
               className="text-white text-center text-4xl md:text-[56px] font-normal mb-8"
-              style={{ fontFamily: "Fjalla One" }}
+              style={headingStyles.h2}
             >
               Explore Inspiring Online Courses
             </h2>
@@ -262,11 +263,7 @@ export default function Home() {
               {Categories.map((cat, i) => (
                 <button
                   key={cat}
-                  className={`px-5 py-2 rounded-full border border-[var(--color-light-gray)] text-white text-sm font-medium transition ${
-                    i === 0
-                      ? "bg-[var(--color-primary)] text-black border-none"
-                      : "hover:bg-[var(--color-light-gray)]"
-                  }`}
+                  className={`category-button ${i === 0 ? 'active' : ''}`}
                 >
                   {cat}
                 </button>
@@ -275,7 +272,7 @@ export default function Home() {
           </div>
 
           {/* Courses Grid */}
-          <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
             {HomePageData.map((course, i) => (
               <div
                 key={i}
@@ -331,23 +328,9 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       {/* Testimonial Carousel */}
-      <TestimonialCarousel />
+      <CardCarousel />
     </>
   );
 }
-
-const textStyle = {
-  fontFamily: "Fjalla One",
-  fontWeight: "400",
-  lineHeight: "130%",
-  letterSpacing: "2%",
-  color: "#0E0E0E",
-};
-
-const inter = {
-  fontFamily: "Inter",
-  fontWeight: "700",
-  lineHeight: "120%",
-  letterSpacing: "0%",
-};
