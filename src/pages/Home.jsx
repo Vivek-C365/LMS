@@ -89,7 +89,7 @@ const FeaturesCard = () => {
   return (
     <div className="bg-white rounded-b-xl p-6 flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-200">
       {cardData.map((card) => (
-        <div className="flex-1 px-8 flex flex-col items-start">
+        <div className="flex-1 px-8 flex flex-col items-start" key={card.title}>
           <div
             className={` max-w-[69px] max-h-[69px] w-full h-[69px] rounded-full ${card.backgroundColor}  flex items-center justify-center mb-4`}
           >

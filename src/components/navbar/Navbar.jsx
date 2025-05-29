@@ -3,11 +3,15 @@ import Earth from '../../assets/icons/svg/Earth.svg'
 import plus from '../../assets/images/svg/Vector.svg'
 import DropDown from '../common/DropDown'
 import SearchBar from '../common/SearchBar'
-import AuthPage from '../../auth/pages/AuthPage'
-// import Button from '../common/button'
+import { useContext } from 'react'
+import ModalContext from '../../context/ModalContext'
+import Button from '../common/button'
 // import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const {activeModal, setActiveModal } = useContext(ModalContext)
+  console.log(activeModal)
+
   const items = [
     {
       key: '1',
@@ -54,7 +58,6 @@ export default function Navbar() {
     },
   ]
 
-  // const navigate = useNavigate();
   return (
     <div className="p-3 mx-auto">
       <div className="flex items-center gap-2 justify-between">
@@ -81,8 +84,16 @@ export default function Navbar() {
             <p className="p-2">En</p>
           </div>
 
-          <div className='flex '>
-            <AuthPage />
+          <div className="flex ">
+            <Button
+              onClick={() => {
+                setActiveModal('signIn');
+                 console.log('Button is clicked');
+              }}
+            >
+              SignIn
+            </Button>
+            <Button onClick={() => setActiveModal('signUp')}>SignUp</Button>
           </div>
         </div>
       </div>
